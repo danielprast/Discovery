@@ -1,2 +1,2 @@
 # Discovery
-Try to learn and discovery about swift language
+Try to learn and discovery about swift language and ios
