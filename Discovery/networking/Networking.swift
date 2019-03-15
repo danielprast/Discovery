@@ -50,8 +50,10 @@ class Networking {
                     let ndata = NData(data: Observable.just(data))
                     completion(.success(ndata))
                 } else if response.statusCode == 500 {
-                    let error = NError()
-                    error.errorType = ErrorType.internalServerError
+                    let error = NError(type: ErrorType.internalServerError)
+                    completion(.failure(error))
+                } else if response.statusCode == 401 {
+                    let error = NError(type: ErrorType.unauthorized)
                     completion(.failure(error))
                 }
             }
